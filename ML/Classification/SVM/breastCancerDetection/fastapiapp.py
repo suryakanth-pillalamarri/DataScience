@@ -4,7 +4,16 @@ import pickle
 import numpy as np
 import uvicorn
 
-model_path=r"D:\Surya files\DataScience\ML\Classification\SVM\breastCancerDetection\output\breast_cancer_model_detector.pkl"
+
+import os
+
+# Determine the OS type and set the model path accordingly
+if os.name == 'posix':  # Unix/Linux/MacOS
+    model_path = "output/breast_cancer_model_detector.pkl"
+elif os.name == 'nt':  # Windows
+    model_path = r"D:\Surya files\DataScience\ML\Classification\SVM\breastCancerDetection\output\breast_cancer_model_detector.pkl"
+else:
+    raise OSError("Unsupported operating system")
 
 
 with open(model_path,'rb') as file:
